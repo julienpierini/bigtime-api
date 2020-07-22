@@ -18,18 +18,21 @@ A freshly hired product manager, let's call him _L._, has been tasked with creat
 ## Requirements 📝
 
   - API exposed using AWS API Gateway, with Lambda backend
+  - CTO's a slytherin, solution should be written in Python 3 🐍
   - Single ressource `/currentTime` that can accept only `GET` requests
   - Deployment steps should be called through `make deploy`
   - Removal of deployed resources can be performed with `make destroy`
-  - Ops team should be notified on API error
+  - Ops team should be notified on backend error
 
 
-Note: Assume that the team that will deploy this API has all administrative rights to do so.
+Notes:
+  - Assume that the team that will deploy this API has all administrative rights to do so
+  - Any authentication is out of scope
 
 #### Bonus 🥇
 
   - Log access to the API
-  - Provide usage stats (number of time) for the last 15 days
+  - Provide usage stats (number of times the resource has been called) for the last 15 days
 
 ## API Description 🤓
 
@@ -46,6 +49,10 @@ Query parameters|Type     |Required|Description
 ```
 200
 
+Headers:
+  - Content-Type: application/json
+
+Body:
 {
     "currentTime": <ISO-8601 timestamps for the selected timezone>
 }
