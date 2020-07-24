@@ -6,7 +6,7 @@ Note: _Names, characters, businesses, places, events, locales, and incidents are
 
 ---
 
-BigTime® Inc. is a company that thrives on selling inovative products to the general consumer market such as:
+BigTime® Inc. is a company that thrives on selling innovative products to the general consumer market such as:
 
   - BigTime® BigBox: 🕰 a massive device that can give the time using a round dial
   - BigTime® BigBox Mini: ⌚️ same feature, but with a smaller form factor that can be conveniently carried on the wrist.
@@ -18,7 +18,7 @@ A freshly hired product manager, let's call him _L._, has been tasked with creat
 ## Requirements 📝
 
   - API exposed using AWS API Gateway, with Lambda backend
-  - CTO's a slytherin, solution should be written in Python 3 🐍
+  - CTO's a Slytherin, solution should be written in Python 3 🐍
   - Single ressource `/currentTime` that can accept only `GET` requests
   - Deployment steps should be called through `make deploy`
   - Removal of deployed resources can be performed with `make destroy`
@@ -46,13 +46,11 @@ Query parameters|Type     |Required|Description
 
 #### Response
 
-```
-200
+```http
+200 OK
 
-Headers:
-  - Content-Type: application/json
+Content-Type: application/json
 
-Body:
 {
     "currentTime": <ISO-8601 timestamps for the selected timezone>
 }
