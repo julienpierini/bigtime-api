@@ -1,17 +1,15 @@
 deploy:
-	@echo "Getting terraform"
-	@cd terraform
-	@sudo apt get install unzip wget
-	@wget https://releases.hashicorp.com/terraform/0.12.19/terraform_0.12.19_linux_amd64.zip -O terraform.zip
-	@unzip -o terraform.zip
-	@rm terraform.zip
-	@sudo mv terraform /usr/bin/terraform
-	@chmod +x /usr/bin/terraform
+	@if [ ! -f "/usr/bin/terraform" ]; then \
+		echo "Getting terraform"; \
+		sudo apt install unzip wget; \
+		wget https://releases.hashicorp.com/terraform/0.12.19/terraform_0.12.19_linux_amd64.zip -O terraform.zip; \
+		sudo unzip -d /usr/bin -o terraform.zip; \
+		sudo rm terraform.zip; \
+	fi
 	@echo "Initialize backend"
-	@terraform init
-	@echo "Deploying the API"
-	@terraform deploy --auto-approve
+	@cd terraform; terraform init
+	@echo "Deploying the bigtime API"
+	@cd terraform;terraform apply -auto-approve
 destroy:
 	@echo "Removal of all deployed resources"
-	@cd terraform
-	@terraform destroy --auto-approve
+	@cd terraform; terraform destroy --auto-approve
