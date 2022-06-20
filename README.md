@@ -32,7 +32,7 @@ Notes:
 #### Bonus 🥇
 
   - Log access to the API
-  - Provide usage stats (number of times the resource has been called) for the last 15 days
+  - Provide usage stats (number of times the resource has been called) for the last 15 days <!-- (usage stats can be retrieved from aws console in the function monitoring (Invocations section), do you mean from an API call ?) -->
 
 ## API Description 🤓
 
